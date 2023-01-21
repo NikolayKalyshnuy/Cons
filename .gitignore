@@ -1,4 +1,4 @@
 /__pycache__
 /.vscode
-.html
-.log
+*.html
+*.log
