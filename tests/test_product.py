@@ -1,14 +1,17 @@
 import unittest
-from product import Product
+from product import Product, format
 
 class TestProduct(unittest.TestCase):
 
+    def test_format(self):
+        res = format("\r\nfsf fdhg\n   \r  ")
+        self.assertEqual(res, "fsf fdhg")
+
     def test_change(self):
-        product = Product()
-        product.maker("VGA")
-        # product.price("10")  
-        # self.assertEqual(product, Product("VGA", "10"))
-        self.assertEqual('foo'.upper(), 'FOO')
+        car = Product()
+        car.maker = "VGA"
+        car.price = "10"
+        self.assertEqual(car, Product("VGA", "10"))
 
 if __name__ == '__main__':
     unittest.main()

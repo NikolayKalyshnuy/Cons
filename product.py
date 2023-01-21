@@ -1,4 +1,6 @@
-import re
+
+def format(value):
+    return value.replace('\r', '').replace('\n', '').strip()
 
 class Product:
     def __init__(self, maker = "", price = ""):
@@ -7,6 +9,9 @@ class Product:
 
     def __str__(self):
         return f"{self._maker} - {self._price}"
+
+    def __eq__(self, o):
+        return self.maker == o.maker and self.price == o.price
         
     @property
     def maker(self):
@@ -14,8 +19,7 @@ class Product:
 
     @maker.setter
     def maker(self, value):
-         temp = re.sub(r"[^\W ", "", value).strip()
-         self._maker = temp
+        self._maker = format(value)
 
     @property
     def price(self):
@@ -23,7 +27,4 @@ class Product:
 
     @price.setter
     def price(self, value):
-        self._price = re.sub(r"[^\W ", "", value).strip()
-
-
-
+        self._price = format(value)
