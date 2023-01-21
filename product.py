@@ -14,7 +14,8 @@ class Product:
 
     @maker.setter
     def maker(self, value):
-        self._maker = re.sub(r"[^\W ", "", value).strip()
+         temp = re.sub(r"[^\W ", "", value).strip()
+         self._maker = temp
 
     @property
     def price(self):
