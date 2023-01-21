@@ -9,13 +9,12 @@ URL = "https://avto.pro/part-N91057001-LAMBORGHINI-681/"
 time.sleep(3 + random() * 4)
 resp = requests.get(URL)
 resp.encoding = "UTF8"
-# with open("index.html", "w") as f:
-#     f.write(resp.text)
+with open("index.html", "w") as f:
+    f.write(resp.text)
 # print(resp.text)
 
 soup = BeautifulSoup(resp.text, "html.parser")
 table = soup.select("#js-partslist-primary > tbody > tr")
-# print(table)
 with open("price.log", "w", encoding="utf") as f:
     for row in table:
         product = Product()
